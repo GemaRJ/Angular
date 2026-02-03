@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
  protected readonly title = signal('inicio');
- nombre?: string | undefined = 'Borja'; // string | undefined
+ nombre?: string | undefined = 'GEMA'; // string | undefined
  nota?: number | undefined = 10; // number | undefined
  imagen = 'https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg';
 
