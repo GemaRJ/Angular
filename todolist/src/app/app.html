@@ -1,0 +1,45 @@
+<nav class="navbar bg-body-tertiary border-bottom">
+  <div class="container-fluid d-flex flex-column align-items-start">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menuVertical"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <!-- NO SE USA HREF SE SUSTITUYE POR ROUTERLINK [routerLink]="['home']" RECORDAR CAMBIARLOS EN APP.TS Y AÑADIRLO EN IMPORTS-->
+    <div class="collapse navbar-collapse w-100 mt-2" id="menuVertical">
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['home']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['add']">Add</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['list']">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['buscar']">Buscar</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="container mt-3">
+  <router-outlet></router-outlet>
+</main>

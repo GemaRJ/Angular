@@ -1,0 +1,27 @@
+<p>
+  Este proyecto servirá para poder gestionar los datos de las tareas pendientes a ejecutar y sus
+  componentes. Lo primero que necesitamos es el nombre del usuario que va a trabajar en las tareas
+</p>
+<div class="m-4">
+  <input
+    class="form-control mb-4"
+    type="email"
+    placeholder="Introduce tu correo"
+    [(ngModel)]="correo"
+  />
+  <input
+    class="form-control mb-4"
+    type="password"
+    placeholder="Introduce tu contraseña"
+    [(ngModel)]="pass"
+  />
+  <button class="btn btn-primary" (click)="validarUsuario()">Iniciar sesión</button>
+</div>
+
+@if (validacion !== undefined) {
+  @if (validacion) {
+    <p class="alert alert-success">Este usuario es válido. ¡Bienvenida!</p>
+  } @else {
+    <p class="alert alert-danger">Este usuario es incorrecto. Revisa tus datos.</p>
+  }
+}
