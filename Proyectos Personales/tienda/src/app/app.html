@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<!-- Navbar / Filtros -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4 p-3 rounded">
+  <div class="container d-flex flex-wrap align-items-center gap-2">
+    <!-- Logo / título -->
+    <span class="navbar-brand fw-bold fs-4">🛍 Tienda Angular</span>
+
+    <!-- Filtros -->
+    <select class="form-select w-auto" [(ngModel)]="selectedCategory">
+      <option value="all">Todas las categorías</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat | titlecase }}</option>
+    </select>
+
+    <input
+      type="text"
+      class="form-control w-auto"
+      placeholder="Marca"
+      [(ngModel)]="selectedBrand"
+    />
+    <input
+      type="number"
+      class="form-control w-auto"
+      placeholder="Precio mínimo"
+      [(ngModel)]="minPrice"
+    />
+
+    <button class="btn btn-primary" (click)="applyFilter()">Filtrar</button>
+
+    <!-- Carrito -->
+    <button class="btn btn-outline-primary position-relative ms-auto" (click)="viewCart()">
+      🛒 Carrito
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{ cartCount }}
+      </span>
+    </button>
+  </div>
+</nav>
+
+<!-- Productos -->
+<div class="container">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let product of filteredProducts">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+        <img [src]="product.thumbnail" class="card-img-top" [alt]="product.title" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text text-muted">
+            {{ product.category | titlecase }} - {{ product.brand }}
+          </p>
+          <p class="card-text fw-bold">$ {{ product.price }}</p>
+          <button class="btn btn-primary mt-auto" (click)="addToCart(product)">
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carrito lateral -->
+<div class="container mt-5">
+  <h4 class="mb-3">🛒 Carrito</h4>
+  <ul class="list-group shadow-sm" *ngIf="cart.length > 0; else emptyCart">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center animate__animated animate__fadeInRight"
+      *ngFor="let item of cart"
+    >
+      {{ item.title }} - ${{ item.price }}
+      <button class="btn btn-sm btn-danger" (click)="removeFromCart(item)">x</button>
+    </li>
+    <li class="list-group-item text-end">
+      <button class="btn btn-success" [disabled]="cart.length === 0" (click)="checkout()">
+        Comprar
+      </button>
+    </li>
+  </ul>
+  <ng-template #emptyCart>
+    <p class="text-muted animate__animated animate__fadeIn">El carrito está vacío</p>
+  </ng-template>
+</div>
+
+<!-- Bootstrap, Animate.css y SweetAlert -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
