@@ -18,26 +18,17 @@ La aplicación permite listar productos, añadirlos a un carrito de compras y ge
 
 ---
 
-## 📂 Estructura del proyecto
+## 🗂 Estructura del proyecto
 
-El proyecto sigue esta organización de carpetas y componentes:
+El proyecto está organizado para ser escalable y mantener buenas prácticas:
 
-- **src/app/components/**  
-  - `product-list/` → Lista de productos  
-  - `product-item/` → Tarjeta individual de producto  
-  - `cart/` → Carrito de compra  
-
-- **src/app/services/**  
-  - `product.service.ts` → Gestión de productos y carrito  
-
-- **src/app/models/**  
-  - `product.model.ts` → Modelo de producto  
-
-- **src/app/pages/**  
-  - `home/` → Página principal  
-  - `cart-page/` → Página de carrito  
-
-- **src/assets/images/** → Imágenes de productos  
+- **components/**: Componentes reutilizables (Header, Footer, Product Card, Alert)
+- **pages/**: Páginas principales de la tienda (Home, Carrito, Checkout, Login)
+- **services/**: Servicios para comunicación con la API
+- **models/**: Modelos TypeScript de productos y usuarios
+- **utils/**: Funciones auxiliares
+- **app-routing.module.ts**: Rutas de la aplicación
+- **app.module.ts**: Módulos principales de la aplicación
 
 ---
 
