@@ -22,7 +22,7 @@ Angular (TypeScript)
 
 # 🌟 Inspiración y enlaces
 Basado en mi proyecto original en JavaScript:
-- Ver proyecto JS original
+- Ver proyecto JS original https://github.com/GemaRJ/JavaScript/tree/main/PROYECTOS%20PERSONALES/Tienda_productos_carrito
 
 # 🚀 Próximos pasos (Fullstack)
 Integrar usuarios y sesiones para carrito personalizado
