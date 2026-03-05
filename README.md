@@ -35,11 +35,11 @@ Filtrado y renderizado dinámico de datos
 
 Todos los proyectos muestran la aplicación práctica de los conceptos aprendidos, desde componentes interactivos hasta aplicaciones completas.
 
-📂 Proyectos Personales
+**📂 Proyectos Personales**
 
 Entre los proyectos destaca:
 
-🛒 Tienda Online con Carrito (Angular + TypeScript)
+**🛒 Tienda Online con Carrito (Angular + TypeScript)**
 
 Aplicación funcional de comercio electrónico que demuestra Angular avanzado y manejo de estado reactivo:
 
