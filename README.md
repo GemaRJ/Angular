@@ -19,13 +19,6 @@ Control de versiones: Git y GitHub
 Accede a todos los recursos teóricos y ejemplos prácticos de Angular:
 📂 Prácticas de Angular
 
-Cada archivo contiene teoría, ejemplos y ejercicios listos para abrir y ejecutar en el navegador.
-
-📝 Prácticas / Ejercicios diarios
-
-Ejercicios que reflejan práctica diaria y aprendizaje progresivo de Angular:
-📂 Carpeta de Prácticas
-
 Incluye ejemplos de:
 
 Componentes y módulos
@@ -35,6 +28,8 @@ Bindings y eventos
 Consumo de APIs
 
 Filtrado y renderizado dinámico de datos
+
+🔗 Ver proyecto completo https://github.com/GemaRJ/Angular/tree/main/Pr%C3%A1cticas
 
 # 🚀 Proyectos Personales
 
@@ -58,6 +53,6 @@ Modal de carrito y checkout simulado con SweetAlert2
 
 Gestión de cantidades y cálculo de totales automáticamente
 
-🔗 Ver proyecto completo
+🔗 Ver proyecto completo https://github.com/GemaRJ/Angular/tree/main/Proyectos%20Personales/tienda
 
 Este proyecto refleja cómo se aplican conceptos de Angular en un proyecto real, integrando interactividad, lógica de negocio y renderizado dinámico.
