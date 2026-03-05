@@ -1,94 +1,103 @@
-<app-header></app-header>
+<nav class="barra-navegacion">
+  <div class="contenedor-nav">
+    <span class="titulo-marca">TIENDA ANGULAR ONLINE</span>
 
-<!-- Navbar / Filtros -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4 p-3 rounded">
-  <div class="container d-flex flex-wrap align-items-center gap-2">
-    <!-- Logo / título -->
-    <span class="navbar-brand fw-bold fs-4">🛍 Tienda Angular</span>
+    <div class="grupo-filtros">
+      <select class="entrada-formulario" [(ngModel)]="categoriaSeleccionada">
+        <option value="all">Todas las categorías</option>
+        <option *ngFor="let cat of categorias" [value]="cat.valor">
+          {{ cat.etiqueta }}
+        </option>
+      </select>
 
-    <!-- Filtros -->
-    <select class="form-select w-auto" [(ngModel)]="selectedCategory">
-      <option value="all">Todas las categorías</option>
-      <option *ngFor="let cat of categories" [value]="cat">{{ cat | titlecase }}</option>
-    </select>
+      <input
+        type="text"
+        class="entrada-formulario"
+        placeholder="Marca"
+        [(ngModel)]="marcaSeleccionada"
+      />
+      <input
+        type="number"
+        class="entrada-formulario"
+        placeholder="Precio mínimo"
+        [(ngModel)]="precioMinimo"
+      />
+      <button class="boton boton-primario" (click)="aplicarFiltro()">Filtrar</button>
+    </div>
 
-    <input
-      type="text"
-      class="form-control w-auto"
-      placeholder="Marca"
-      [(ngModel)]="selectedBrand"
-    />
-    <input
-      type="number"
-      class="form-control w-auto"
-      placeholder="Precio mínimo"
-      [(ngModel)]="minPrice"
-    />
-
-    <button class="btn btn-primary" (click)="applyFilter()">Filtrar</button>
-
-    <!-- Carrito -->
-    <button class="btn btn-outline-primary position-relative ms-auto" (click)="viewCart()">
+    <button class="boton boton-carrito" (click)="verCarrito()">
       🛒 Carrito
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        {{ cartCount }}
-      </span>
+      <span class="globo-contador" *ngIf="cantidadCarrito() > 0">{{ cantidadCarrito() }}</span>
     </button>
   </div>
 </nav>
 
-<!-- Productos -->
-<div class="container">
-  <div class="row g-4">
-    <div class="col-md-4" *ngFor="let product of filteredProducts">
-      <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
-        <img [src]="product.thumbnail" class="card-img-top" [alt]="product.title" />
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text text-muted">
-            {{ product.category | titlecase }} - {{ product.brand }}
-          </p>
-          <p class="card-text fw-bold">$ {{ product.price }}</p>
-          <button class="btn btn-primary mt-auto" (click)="addToCart(product)">
-            Añadir al carrito
-          </button>
-        </div>
+<div class="contenedor-principal">
+  <div class="cuadricula-productos">
+    <div class="tarjeta" *ngFor="let producto of productosFiltrados">
+      <img [src]="producto.thumbnail" [alt]="producto.title" class="imagen-tarjeta" />
+
+      <div class="cuerpo-tarjeta">
+        <h5 class="titulo-tarjeta">{{ producto.title }}</h5>
+        <p class="texto-tarjeta">Categoría: {{ producto.category }}</p>
+        <p class="texto-tarjeta">Marca: {{ producto.brand || 'N/A' }}</p>
+        <p class="precio-tarjeta">$ {{ producto.price | number: '1.2-2' }}</p>
+
+        <button
+          class="boton boton-primario margen-superior-auto"
+          (click)="agregarAlCarrito(producto)"
+        >
+          Añadir al carrito
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Carrito lateral -->
-<div class="container mt-5">
-  <h4 class="mb-3">🛒 Carrito</h4>
-  <ul class="list-group shadow-sm" *ngIf="cart.length > 0; else emptyCart">
-    <li
-      class="list-group-item d-flex justify-content-between align-items-center animate__animated animate__fadeInRight"
-      *ngFor="let item of cart"
-    >
-      {{ item.title }} - ${{ item.price }}
-      <button class="btn btn-sm btn-danger" (click)="removeFromCart(item)">x</button>
-    </li>
-    <li class="list-group-item text-end">
-      <button class="btn btn-success" [disabled]="cart.length === 0" (click)="checkout()">
+<div class="superposicion-modal" *ngIf="mostrarModalCarrito">
+  <div class="contenido-modal">
+    <div class="cabecera-modal">
+      <h5 class="titulo-modal">Carrito</h5>
+      <button class="boton-cerrar" (click)="cerrarCarrito()">✖</button>
+    </div>
+
+    <div class="cuerpo-modal">
+      <ul class="lista-carrito" *ngIf="cantidadCarrito() > 0; else carritoVacio">
+        <li class="articulo-carrito" *ngFor="let articulo of carrito()">
+          <span>{{ articulo.title }} - ${{ articulo.price | number: '1.2-2' }}</span>
+          <button class="boton boton-peligro boton-pequeno" (click)="eliminarDelCarrito(articulo)">
+            Eliminar
+          </button>
+        </li>
+      </ul>
+
+      <ng-template #carritoVacio>
+        <p class="texto-centrado">El carrito está vacío</p>
+      </ng-template>
+    </div>
+
+    <div class="pie-modal">
+      <button
+        class="boton boton-exito"
+        [disabled]="cantidadCarrito() === 0"
+        (click)="procesarCompra()"
+      >
         Comprar
       </button>
-    </li>
-  </ul>
-  <ng-template #emptyCart>
-    <p class="text-muted animate__animated animate__fadeIn">El carrito está vacío</p>
-  </ng-template>
+    </div>
+  </div>
 </div>
-
 <!-- Bootstrap, Animate.css y SweetAlert -->
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
   rel="stylesheet"
+  integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
   crossorigin="anonymous"
 />
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+  crossorigin="anonymous"
+></script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
