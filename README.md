@@ -4,38 +4,26 @@
 
 Este proyecto es la adaptación de mi **Tienda Online en JavaScript** a **Angular con TypeScript**, como parte de mi aprendizaje en desarrollo web moderno y buenas prácticas en SPA (Single Page Application).
 
-La aplicación permite listar productos, añadirlos a un carrito de compras y gestionar cantidades y totales. Además, sirve como base para futuras implementaciones fullstack con usuarios y sesiones.
+La aplicación permite listar productos, filtrarlos, añadirlos a un carrito de compras y gestionar cantidades y totales usando la reactividad nativa de Angular (Signals). Además, sirve como base para futuras implementaciones fullstack con usuarios y sesiones.
 
 ---
 
 ## 🔧 Tecnologías
 
 - **Angular** (TypeScript)  
-- **Bootstrap** para diseño responsive  
+- **CSS3 Puro** para diseño responsive a mnedida.
 - **SweetAlert** para notificaciones y confirmaciones  
 - **LocalStorage** para persistencia del carrito  
-- **HTML5 / CSS3**  
-
----
-
-## 🗂 Estructura del proyecto
-
-El proyecto está organizado para ser escalable y mantener buenas prácticas:
-
-- **components/**: Componentes reutilizables (Header, Footer, Product Card, Alert)
-- **pages/**: Páginas principales de la tienda (Home, Carrito, Checkout, Login)
-- **services/**: Servicios para comunicación con la API
-- **models/**: Modelos TypeScript de productos y usuarios
-- **utils/**: Funciones auxiliares
-- **app-routing.module.ts**: Rutas de la aplicación
-- **app.module.ts**: Módulos principales de la aplicación
+- **HTML5**
+- **DummyJSON API** para el consumo de datos REST reales
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- Listar productos dinámicamente desde un **servicio Angular**  
-- Añadir productos al carrito y actualizar cantidades  
+- Listar productos dinámicamente desde una **API externa (fetch)**  
+- Añadir productos al carrito y actualizar cantidades
+- Filtrado múltiple en tiempo real (por categoría, marca específica y precio mínimo)
 - Eliminar productos del carrito  
 - Mostrar total acumulado y cantidad de artículos  
 - Persistencia en `localStorage` para mantener datos entre recargas  
