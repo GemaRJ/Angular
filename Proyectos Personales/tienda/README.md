@@ -1,5 +1,5 @@
-# Angular
-🛒 Tienda Online con Carrito (Angular + TypeScript)
+
+# 🛒 Tienda Online con Carrito (Angular + TypeScript)
 Este proyecto es la adaptación de mi Tienda Online en JavaScript a Angular con TypeScript , como parte de mi aprendizaje en desarrollo web moderno y buenas prácticas en SPA (Single Page Application).
 
 La aplicación permite listar productos, filtrarlos, añadirlos a un carrito de compras y gestionar cantidades y totales usando la reactividad nativa de Angular (Signals). Además, sirve como base para futuras implementaciones fullstack con usuarios y sesiones.
