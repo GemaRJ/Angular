@@ -1,5 +1,5 @@
 /* 
-clase -> construct attr metodos
+clase -> construct atributos y métodos
 */
 export class tareaClase {
   constructor(
@@ -17,6 +17,46 @@ export class tareaClase {
 
   set setNombre(nombre: string) {
     this.nombre = nombre;
+  }
+
+  get getResponsable() {
+    return this.responsable;
+  }
+
+  set setResponsable(responsable: string) {
+    this.responsable = responsable;
+  }
+
+  get getDefinicion() {
+    return this.definicion;
+  }
+
+  set setDefinicion(definicion: string) {
+    this.definicion = definicion;
+  }
+
+  get getFecha() {
+    return this.fecha;
+  }
+  
+  set setFecha(fecha: string) {
+    this.fecha = fecha;
+  }
+
+  get getPrioridad() {
+    return this.prioridad;
+  } 
+
+  set setPrioridad(prioridad: string) {
+    this.prioridad = prioridad;
+  }
+
+  get getComplemento() {
+    return this.complemento;
+  }
+
+  set setComplemento(complemento: string) {
+    this.complemento = complemento;
   }
 
   // define los metodos que quieras
