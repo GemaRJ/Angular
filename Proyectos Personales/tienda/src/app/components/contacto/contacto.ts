@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -18,6 +18,8 @@ interface MensajeContacto {
   styleUrls: ['./contacto.css']
 })
 export class Contacto implements OnInit {
+  private platformId = inject(PLATFORM_ID);
+
   nombre: string = '';
   email: string = '';
   mensaje: string = '';
@@ -25,9 +27,11 @@ export class Contacto implements OnInit {
   historialMensajes: MensajeContacto[] = [];
 
   ngOnInit(): void {
-    const mensajesGuardados = localStorage.getItem('historialContactos');
-    if (mensajesGuardados) {
-      this.historialMensajes = JSON.parse(mensajesGuardados);
+    if (isPlatformBrowser(this.platformId)) {
+      const mensajesGuardados = localStorage.getItem('historialContactos');
+      if (mensajesGuardados) {
+        this.historialMensajes = JSON.parse(mensajesGuardados);
+      }
     }
   }
 
@@ -51,7 +55,10 @@ export class Contacto implements OnInit {
     };
 
     this.historialMensajes.unshift(nuevoMensaje);
-    localStorage.setItem('historialContactos', JSON.stringify(this.historialMensajes));
+
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('historialContactos', JSON.stringify(this.historialMensajes));
+    }
 
     Swal.fire({
       icon: 'success',
@@ -67,7 +74,10 @@ export class Contacto implements OnInit {
 
   borrarHistorial() {
     this.historialMensajes = [];
-    localStorage.removeItem('historialContactos');
+
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('historialContactos');
+    }
 
     Swal.fire({
       icon: 'success',
