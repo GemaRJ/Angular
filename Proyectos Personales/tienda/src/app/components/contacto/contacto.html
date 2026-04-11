@@ -14,9 +14,10 @@
         #nombreInput="ngModel"
         required
       />
-      <small class="error-campo" *ngIf="nombreInput.invalid && nombreInput.touched">
-        El nombre es obligatorio.
-      </small>
+
+      @if (nombreInput.invalid && nombreInput.touched) {
+        <small class="error-campo"> El nombre es obligatorio. </small>
+      }
     </div>
 
     <div class="grupo-campo">
@@ -31,9 +32,10 @@
         required
         email
       />
-      <small class="error-campo" *ngIf="emailInput.invalid && emailInput.touched">
-        Introduce un correo válido.
-      </small>
+
+      @if (emailInput.invalid && emailInput.touched) {
+        <small class="error-campo"> Introduce un correo válido. </small>
+      }
     </div>
 
     <div class="grupo-campo">
@@ -47,9 +49,10 @@
         #mensajeInput="ngModel"
         required
       ></textarea>
-      <small class="error-campo" *ngIf="mensajeInput.invalid && mensajeInput.touched">
-        El mensaje es obligatorio.
-      </small>
+
+      @if (mensajeInput.invalid && mensajeInput.touched) {
+        <small class="error-campo"> El mensaje es obligatorio. </small>
+      }
     </div>
 
     <button type="submit" class="boton boton-primario" [disabled]="formContacto.invalid">
@@ -58,30 +61,32 @@
   </form>
 </div>
 
-<div class="historial-contacto" *ngIf="historialMensajes.length > 0">
-  <div class="historial-cabecera">
-    <h3>Historial de mensajes</h3>
-    <button class="boton boton-peligro" (click)="borrarHistorial()">Borrar historial</button>
-  </div>
+@if (historialMensajes.length > 0) {
+  <div class="historial-contacto">
+    <div class="historial-cabecera">
+      <h3>Historial de mensajes</h3>
+      <button class="boton boton-peligro" (click)="borrarHistorial()">Borrar historial</button>
+    </div>
 
-  <div class="tabla-responsive">
-    <table class="tabla-historial">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Mensaje</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of historialMensajes">
-          <td>{{ item.nombre }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.mensaje }}</td>
-          <td>{{ item.fecha }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="tabla-responsive">
+      <table class="tabla-historial">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of historialMensajes">
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.mensaje }}</td>
+            <td>{{ item.fecha }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+}

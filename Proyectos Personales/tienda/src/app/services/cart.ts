@@ -6,10 +6,10 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
 
-  // estado del carrito
+  // Estado del carrito
   carrito = signal<Product[]>([]);
 
-  // contador (muy útil para header)
+  // contador 
   cantidad = computed(() => this.carrito().length);
 
   // total calculado
