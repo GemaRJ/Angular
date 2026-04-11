@@ -1,58 +1,102 @@
-# Angular – Proyectos Académicos y Personales
+# 🚀 Angular Projects – Desarrollo Web (DAW)
 
-Este repositorio contiene ejercicios y proyectos realizados durante mi formación en Desarrollo de Aplicaciones Web (DAW), centrados en Angular y TypeScript, incluyendo teoría, prácticas diarias y proyectos personales.
+Repositorio que recoge ejercicios, prácticas y proyectos desarrollados durante mi formación en **Desarrollo de Aplicaciones Web (DAW)**, enfocados en Angular y desarrollo frontend moderno.
 
-Incluye temario, prácticas y proyectos personales, mostrando aplicación práctica de los conocimientos adquiridos en el desarrollo de aplicaciones SPA (Single Page Applications) modernas.
+Incluye desde ejemplos básicos hasta aplicaciones completas tipo SPA, aplicando buenas prácticas y arquitectura por componentes.
 
-# 🌟 Tecnologías y herramientas
+---
 
-Lenguaje: TypeScript, HTML5, CSS3
+## 🧰 Tecnologías utilizadas
 
-Frontend / UI: Angular, Standalone Components, Signals, consumo de APIs
+- **Angular**
+- **TypeScript**
+- **HTML5 / CSS3**
+- **Bootstrap**
+- **SweetAlert2**
+- **Git & GitHub**
 
-Notificaciones y alertas: SweetAlert2
+---
 
-Control de versiones: Git y GitHub
+## 📚 Contenido del repositorio
 
-# 📄 Temario / Documentos
+### 📂 Prácticas de Angular
 
-Accede a todos los recursos teóricos y ejemplos prácticos de Angular:
-📂 Prácticas de Angular
+Colección de ejercicios y ejemplos prácticos sobre:
 
-Incluye ejemplos de:
+- Componentes y arquitectura Angular
+- Data binding y eventos
+- Consumo de APIs
+- Renderizado dinámico
+- Formularios y validación
 
-Componentes y módulos
+🔗 Ver prácticas:  
+https://github.com/GemaRJ/Angular/tree/main/Pr%C3%A1cticas
 
-Bindings y eventos
+---
 
-Consumo de APIs
+## 💼 Proyectos destacados
 
-Filtrado y renderizado dinámico de datos
+### 🛍️ Angular Shop – SPA E-commerce
 
-🔗 Ver proyecto completo https://github.com/GemaRJ/Angular/tree/main/Pr%C3%A1cticas
+Aplicación completa desarrollada con Angular que simula una tienda online.
 
-# 🚀 Proyectos Personales
+🔗 **Demo en producción:**  
+👉 https://angular-one-tau-51.vercel.app/productos
 
-Todos los proyectos muestran la aplicación práctica de los conceptos aprendidos, desde componentes interactivos hasta aplicaciones completas.
+🔗 **Código del proyecto:**  
+👉 https://github.com/GemaRJ/Angular/tree/main/tienda
 
-**📂 Proyectos Personales**
+---
 
-Entre los proyectos destaca:
+### 🚀 Funcionalidades principales
 
-**🛒 Tienda Online con Carrito (Angular + TypeScript)**
+- Consumo de API externa (DummyJSON)
+- Catálogo de productos dinámico
+- Filtros por categoría, marca y precio
+- Carrito de compra con estado compartido
+- Cálculo automático de totales
+- Formulario de contacto con validación
+- Historial persistente con localStorage
+- Navegación SPA sin recargas
+- Diseño responsive
 
-Aplicación funcional de comercio electrónico que demuestra Angular avanzado y manejo de estado reactivo:
+---
 
-Listado dinámico de productos desde una API externa
+### 🧠 Conceptos aplicados
 
-Filtrado múltiple en tiempo real (categoría, marca, precio)
+- Arquitectura basada en componentes
+- Servicios para gestión de estado
+- Comunicación entre componentes
+- Consumo de APIs REST
+- Formularios y validación
+- Persistencia en cliente
+- Despliegue en producción (Vercel)
 
-Carrito reactivo usando Signals
+---
 
-Modal de carrito y checkout simulado con SweetAlert2
+## 🎯 Objetivo del repositorio
 
-Gestión de cantidades y cálculo de totales automáticamente
+Este repositorio refleja mi evolución en Angular, desde conceptos básicos hasta la creación de aplicaciones completas, enfocadas a:
 
-🔗 Ver proyecto completo https://github.com/GemaRJ/Angular/tree/main/Proyectos%20Personales/tienda
+- desarrollo frontend moderno
+- buenas prácticas
+- estructura de proyectos reales
 
-Este proyecto refleja cómo se aplican conceptos de Angular en un proyecto real, integrando interactividad, lógica de negocio y renderizado dinámico.
+---
+
+## 👩‍💻 Sobre mí
+
+Soy desarrolladora en formación con experiencia en entornos técnicos y enfoque en desarrollo frontend.
+
+Este repositorio forma parte de mi portfolio, donde muestro proyectos reales aplicando Angular y tecnologías web.
+
+---
+
+## 🔗 Enlaces
+
+- GitHub: https://github.com/GemaRJ  
+- LinkedIn: https://www.linkedin.com/in/gema-rj  
+
+---
+
+⭐ Repositorio orientado a demostrar habilidades en Angular, consumo de APIs y desarrollo de aplicaciones web completas.
