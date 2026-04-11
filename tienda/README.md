@@ -1,31 +1,44 @@
+# 🛍️ Angular Shop – SPA E-commerce
 
-# 🛒 Tienda Online con Carrito (Angular + TypeScript)
-Este proyecto es la adaptación de mi Tienda Online en JavaScript a Angular con TypeScript , como parte de mi aprendizaje en desarrollo web moderno y buenas prácticas en SPA (Single Page Application).
+Aplicación **Single Page Application (SPA)** desarrollada con **Angular** que simula una tienda online con catálogo de productos, carrito de compra y formulario de contacto con historial.
 
-La aplicación permite listar productos, filtrarlos, añadirlos a un carrito de compras y gestionar cantidades y totales usando la reactividad nativa de Angular (Signals). Además, sirve como base para futuras implementaciones fullstack con usuarios y sesiones.
+🔗 **Demo en producción:**  
+👉 https://angular-one-tau-51.vercel.app/productos
 
-# 🔧 Tecnologías
-Angular (TypeScript)
-**CSS3 Puro** para diseño responsive a mnedida.
-**SweetAlert** para notificaciones y confirmaciones
-**LocalStorage** para persistencia del carrito
-**HTML5**
-**API DummyJSON** para el consumo de datos REST reales
+---
 
-# ⚙️ Funcionalidades
-- Listar productos dinámicamente desde una API externa (fetch)
-- Añadir productos al carrito y actualizar cantidades
-- Filtrado múltiple en tiempo real (por categoría, marca específica y precio mínimo)
-- Quitar productos del carrito
-- Mostrar total acumulado y cantidad de artículos
-- Persistencia en localStoragepara mantener datos entre recargas
+## 🚀 Features
 
-# 🌟 Inspiración y enlaces
-Basado en mi proyecto original en JavaScript:
-- Ver proyecto JS original https://github.com/GemaRJ/JavaScript/tree/main/PROYECTOS%20PERSONALES/Tienda_productos_carrito
+- 🔄 Consumo de API externa (DummyJSON)
+- 🛒 Carrito de compra con estado compartido
+- 🔍 Filtros dinámicos (categoría, marca, precio)
+- 📄 Detalle de producto desplegable
+- 📩 Formulario con validación + historial persistente
+- 💾 Uso de `localStorage`
+- ⚡ Navegación SPA sin recargas
+- 📱 Diseño responsive
 
-# 🚀 Próximos pasos (Fullstack)
-Integrar usuarios y sesiones para carrito personalizado
-Conectar con API real para gestión de productos
-Migrar un fullstack Angular + Node.js / Express
-Posible integración con bases de datos MySQL o MongoDB
+---
+
+## 🧱 Tech Stack
+
+- Angular  
+- TypeScript  
+- HTML / CSS  
+- Bootstrap  
+- SweetAlert2  
+- Vercel  
+
+---
+
+## 📂 Arquitectura
+
+```text
+components/
+  ├── productos   → catálogo + filtros
+  ├── carrito     → gestión de compra
+  └── contacto    → formulario + historial
+
+services/
+  ├── api.ts      → consumo de API
+  └── cart.ts     → estado global del carrito
