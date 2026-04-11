@@ -1,0 +1,33 @@
+<div class="cabecera-seccion">
+  <h2 class="titulo-seccion">Carrito</h2>
+  <p class="subtitulo-seccion">Revisa tus productos antes de finalizar la compra</p>
+</div>
+
+<div class="panel-carrito" *ngIf="carrito().length > 0; else carritoVacio">
+  <ul class="lista-carrito">
+    <li class="articulo-carrito" *ngFor="let p of carrito()">
+      <div class="item-carrito">
+        <img [src]="p.thumbnail" class="imagen-carrito" />
+
+        <div class="info-articulo">
+          <h4>{{ p.title }}</h4>
+          <p>{{ p.price | currency: 'EUR' }}</p>
+        </div>
+      </div>
+
+      <button class="boton boton-peligro" (click)="eliminar(p)">Eliminar</button>
+    </li>
+  </ul>
+
+  <div class="resumen-carrito">
+    <h3>Total: {{ total() | currency: 'EUR' }}</h3>
+
+    <button class="boton boton-exito" (click)="comprar()">Comprar</button>
+  </div>
+</div>
+
+<ng-template #carritoVacio>
+  <div class="panel-vacio">
+    <p>Tu carrito está vacío.</p>
+  </div>
+</ng-template>

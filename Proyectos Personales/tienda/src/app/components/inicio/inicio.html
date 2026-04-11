@@ -1,0 +1,67 @@
+<div class="cabecera-seccion">
+  <h2 class="titulo-seccion">Productos</h2>
+  <p class="subtitulo-seccion">Explora el catálogo y añade productos al carrito</p>
+</div>
+
+<div class="grupo-filtros filtros-inicio">
+  <select class="entrada-formulario" [(ngModel)]="categoriaSeleccionada">
+    <option value="all">Todas las categorías</option>
+    <option *ngFor="let cat of categorias" [value]="cat.valor">
+      {{ cat.etiqueta }}
+    </option>
+  </select>
+
+  <input
+    type="text"
+    class="entrada-formulario"
+    placeholder="Marca"
+    [(ngModel)]="marcaSeleccionada"
+  />
+
+  <input
+    type="number"
+    class="entrada-formulario"
+    placeholder="Precio mínimo"
+    [(ngModel)]="precioMinimo"
+  />
+
+  <button class="boton boton-primario" (click)="aplicarFiltro()">Filtrar</button>
+</div>
+
+<div class="cuadricula-productos">
+  <div class="tarjeta" *ngFor="let producto of productosFiltrados">
+    <img [src]="producto.thumbnail" [alt]="producto.title" class="imagen-tarjeta" />
+
+    <div class="cuerpo-tarjeta">
+      <h5 class="titulo-tarjeta">{{ producto.title }}</h5>
+      <p class="texto-tarjeta">Categoría: {{ producto.category }}</p>
+      <p class="texto-tarjeta">Marca: {{ producto.brand || 'N/A' }}</p>
+      <p class="precio-tarjeta">{{ producto.price | currency: 'EUR' }}</p>
+
+      <div class="acciones-tarjeta margen-superior-auto">
+        <button class="boton boton-primario boton-ancho" (click)="agregarAlCarrito(producto)">
+          Añadir al carrito
+        </button>
+
+        <button class="boton boton-secundario boton-ancho" (click)="mostrarDetalle(producto.id)">
+          {{ producto.verDetalle ? 'Ocultar detalle' : 'Ver detalle' }}
+        </button>
+      </div>
+
+      <div class="detalle-producto" *ngIf="producto.verDetalle">
+        <p><strong>Descripción:</strong> {{ producto.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+  crossorigin="anonymous"
+></script>

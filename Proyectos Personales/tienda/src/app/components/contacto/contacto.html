@@ -1,0 +1,87 @@
+<div class="caja-contacto">
+  <h2>Contacto</h2>
+  <p class="subtexto-contacto">Envíanos tu mensaje y consulta el historial guardado.</p>
+
+  <form #formContacto="ngForm" (ngSubmit)="enviarFormulario(formContacto)">
+    <div class="grupo-campo">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        class="entrada-formulario"
+        [(ngModel)]="nombre"
+        #nombreInput="ngModel"
+        required
+      />
+      <small class="error-campo" *ngIf="nombreInput.invalid && nombreInput.touched">
+        El nombre es obligatorio.
+      </small>
+    </div>
+
+    <div class="grupo-campo">
+      <label for="email">Correo electrónico</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="entrada-formulario"
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+        required
+        email
+      />
+      <small class="error-campo" *ngIf="emailInput.invalid && emailInput.touched">
+        Introduce un correo válido.
+      </small>
+    </div>
+
+    <div class="grupo-campo">
+      <label for="mensaje">Mensaje</label>
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="5"
+        class="entrada-formulario"
+        [(ngModel)]="mensaje"
+        #mensajeInput="ngModel"
+        required
+      ></textarea>
+      <small class="error-campo" *ngIf="mensajeInput.invalid && mensajeInput.touched">
+        El mensaje es obligatorio.
+      </small>
+    </div>
+
+    <button type="submit" class="boton boton-primario" [disabled]="formContacto.invalid">
+      Enviar
+    </button>
+  </form>
+</div>
+
+<div class="historial-contacto" *ngIf="historialMensajes.length > 0">
+  <div class="historial-cabecera">
+    <h3>Historial de mensajes</h3>
+    <button class="boton boton-peligro" (click)="borrarHistorial()">Borrar historial</button>
+  </div>
+
+  <div class="tabla-responsive">
+    <table class="tabla-historial">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Mensaje</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of historialMensajes">
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.mensaje }}</td>
+          <td>{{ item.fecha }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
