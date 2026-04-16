@@ -1,0 +1,15 @@
+.card {
+  border-radius: 12px;
+}
+
+.card-title {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+
+ul {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-left: 20px;
+}

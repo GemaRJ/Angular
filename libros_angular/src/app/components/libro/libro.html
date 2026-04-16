@@ -1,0 +1,20 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ datos?.Title }}</h5>
+
+    <p><strong>Año:</strong> {{ datos?.Year }}</p>
+    <p><strong>Editorial:</strong> {{ datos?.Publisher }}</p>
+
+    <p><strong>Villanos:</strong></p>
+
+    @if (datos?.villains?.length > 0) {
+      <ul>
+        @for (villano of datos.villains; track $index) {
+          <li>{{ villano.name }}</li>
+        }
+      </ul>
+    } @else {
+      <p>No hay villanos</p>
+    }
+  </div>
+</div>
