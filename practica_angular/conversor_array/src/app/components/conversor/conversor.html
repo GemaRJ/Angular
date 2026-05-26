@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>Conversor de monedas</h2>
+
+  <input
+    type="number"
+    class="form-control mb-2"
+    placeholder="Introduce cantidad"
+    [ngModel]="cantidad()"
+    (ngModelChange)="cantidad.set($event)"
+  />
+
+  <select class="form-select mb-2" [ngModel]="moneda()" (ngModelChange)="moneda.set($event)">
+    <option value="dolar">Euro a dólar</option>
+
+    <option value="libra">Euro a libra</option>
+  </select>
+
+  <button class="btn btn-primary" (click)="convertir()">Convertir</button>
+
+  <hr />
+
+  <div class="card p-3">
+    <h4>Resultado</h4>
+
+    <p class="fs-5 fw-bold">
+      {{ resultado() }}
+    </p>
+  </div>
+
+  <hr />
+
+  <h4>Historial</h4>
+
+  @for (item of historial(); track $index) {
+    <div class="alert alert-info">
+      {{ item }}
+    </div>
+  }
+</div>

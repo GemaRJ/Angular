@@ -1,0 +1,24 @@
+<div class="card h-100 shadow-sm">
+  <img
+    [src]="datos?.flags?.png"
+    class="card-img-top"
+    [alt]="datos?.name?.common"
+    style="height: 160px; object-fit: cover"
+  />
+
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ datos?.name?.common }}
+    </h5>
+
+    <p><strong>Lenguajes:</strong></p>
+
+    <ul>
+      @for (idioma of getIdiomas(); track $index) {
+        <li>{{ idioma }}</li>
+      } @empty {
+        <li>No hay idiomas disponibles</li>
+      }
+    </ul>
+  </div>
+</div>

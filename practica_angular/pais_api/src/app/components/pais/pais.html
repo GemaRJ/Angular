@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h1>Listado de países</h1>
+
+  <div class="row">
+    @for (pais of paises(); track $index) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img [src]="pais.flags.png" class="card-img-top" alt="bandera" />
+
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ pais.name.common }}
+            </h5>
+
+            <h6>Idiomas:</h6>
+
+            <ul>
+              @for (idioma of getIdiomas(pais.languages); track $index) {
+                <li>
+                  {{ idioma }}
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

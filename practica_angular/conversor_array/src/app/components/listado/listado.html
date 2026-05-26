@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <div class="card p-4">
+    <h2>Listado de monedas</h2>
+
+    <ul class="list-group list-group-flush">
+      @for (item of monedas; track $index) {
+        <li class="list-group-item">{{ item }}</li>
+      }
+    </ul>
+  </div>
+</div>

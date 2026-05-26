@@ -1,0 +1,11 @@
+<h2 class="text-center mb-4">Listado de Países</h2>
+
+<div class="row g-4">
+  @for (item of lista(); track $index) {
+    <div class="col-12 col-md-6 col-lg-4">
+      <app-pais [datos]="item"></app-pais>
+    </div>
+  } @empty {
+    <p class="text-center">Cargando países...</p>
+  }
+</div>

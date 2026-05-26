@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <nav class="mb-4">
+    <button class="btn btn-primary me-2" (click)="pagina.set('calorias')">Calculadora</button>
+
+    <button class="btn btn-secondary" (click)="pagina.set('listado')">Listado</button>
+  </nav>
+
+  @if (pagina() === 'calorias') {
+    <app-calorias></app-calorias>
+  }
+
+  @if (pagina() === 'listado') {
+    <app-listado></app-listado>
+  }
+</div>

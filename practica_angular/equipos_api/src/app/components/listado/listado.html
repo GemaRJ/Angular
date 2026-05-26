@@ -1,0 +1,25 @@
+<div class="row">
+  @for (equipo of lista(); track $index) {
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img [src]="equipo.strBadge" class="card-img-top p-3" />
+
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ equipo.strTeam }}
+          </h5>
+
+          <p>
+            <strong>País:</strong>
+            {{ equipo.strCountry }}
+          </p>
+
+          <p>
+            <strong>Estadio:</strong>
+            {{ equipo.strStadium }}
+          </p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

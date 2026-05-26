@@ -1,0 +1,31 @@
+<div>
+  <h2>Calculador de calorías</h2>
+
+  <input
+    type="text"
+    class="form-control mb-2"
+    placeholder="Alimento"
+    [ngModel]="alimento()"
+    (ngModelChange)="alimento.set($event)"
+  />
+
+  <input
+    type="number"
+    class="form-control mb-2"
+    placeholder="Calorías"
+    [ngModel]="calorias()"
+    (ngModelChange)="calorias.set($event)"
+  />
+
+  <button class="btn btn-success" (click)="agregar()">añadir</button>
+
+  <h3 class="mt-3">Total: {{ total() }} kcal</h3>
+
+  <ul class="list-group mt-3">
+    @for (item of lista(); track $index) {
+      <li class="list-group-item">
+        {{ item }}
+      </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,35 @@
+<h2 class="mb-4">Formulario</h2>
+
+<input
+  type="text"
+  class="form-control mb-3"
+  placeholder="Producto"
+  [ngModel]="producto()"
+  (ngModelChange)="producto.set($event)"
+/>
+
+<input
+  type="number"
+  class="form-control mb-3"
+  placeholder="Precio"
+  [ngModel]="precio()"
+  (ngModelChange)="precio.set($event)"
+/>
+
+<input
+  type="number"
+  class="form-control mb-3"
+  placeholder="Cantidad"
+  [ngModel]="cantidad()"
+  (ngModelChange)="cantidad.set($event)"
+/>
+
+<select class="form-select mb-3" [ngModel]="stock()" (ngModelChange)="stock.set($event)">
+  <option value="">Selecciona stock</option>
+
+  <option value="Disponible">Disponible</option>
+
+  <option value="Agotado">Agotado</option>
+</select>
+
+<button class="btn btn-primary" (click)="guardar()">Guardar</button>

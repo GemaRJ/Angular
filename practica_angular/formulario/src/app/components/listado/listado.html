@@ -1,0 +1,17 @@
+<h2 class="mb-4">Listado</h2>
+
+@for (item of datosService.lista(); track $index) {
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5>
+        {{ item.producto }}
+      </h5>
+
+      <p>Precio: {{ item.precio }} €</p>
+
+      <p>Cantidad: {{ item.cantidad }}</p>
+
+      <p>Stock: {{ item.stock }}</p>
+    </div>
+  </div>
+}

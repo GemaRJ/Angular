@@ -1,0 +1,11 @@
+<div>
+  <h2>Listado de alimentos</h2>
+
+  <ul class="list-group">
+    @for (alimento of alimentos; track $index) {
+      <li class="list-group-item">
+        {{ alimento }}
+      </li>
+    }
+  </ul>
+</div>

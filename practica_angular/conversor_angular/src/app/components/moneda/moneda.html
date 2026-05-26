@@ -1,0 +1,57 @@
+<div class="container mt-4" style="max-width: 500px">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Conversor de Monedas</h2>
+
+      <!-- INPUT -->
+      <input
+        type="number"
+        class="form-control mb-3"
+        [(ngModel)]="cantidad"
+        placeholder="Cantidad"
+      />
+
+      <!-- ORIGEN -->
+      <label class="form-label">Moneda origen</label>
+      <select class="form-select mb-3" [(ngModel)]="origen">
+        @for (m of monedas; track m) {
+          <option [value]="m">{{ m }}</option>
+        }
+      </select>
+
+      <!-- DESTINO -->
+      <label class="form-label">Moneda destino</label>
+      <select class="form-select mb-3" [(ngModel)]="destino">
+        @for (m of monedas; track m) {
+          <option [value]="m">{{ m }}</option>
+        }
+      </select>
+
+      <!-- BOTÓN -->
+      <button class="btn btn-primary w-100" [disabled]="cargando" (click)="convertir()">
+        Convertir
+      </button>
+
+      <!-- LOADING -->
+      @if (cargando) {
+        <div class="alert alert-info mt-3 text-center">Convirtiendo...</div>
+      }
+
+      <!-- ERROR -->
+      @if (error) {
+        <div class="alert alert-danger mt-3 text-center">
+          {{ error }}
+        </div>
+      }
+
+      <!-- RESULTADO -->
+      @if (resultado !== null && !cargando) {
+        <div class="alert alert-success mt-3 text-center">
+          <p class="mb-1">Resultado:</p>
+          <strong>{{ cantidad }} {{ origen }}</strong> =
+          <strong>{{ resultado | number: '1.2-2' }} {{ destino }}</strong>
+        </div>
+      }
+    </div>
+  </div>
+</div>

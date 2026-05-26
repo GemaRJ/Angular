@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>Calculadora</h2>
+
+  <input type="number" [(ngModel)]="num1" />
+
+  <input type="number" [(ngModel)]="num2" />
+
+  <br /><br />
+
+  <button (click)="calcular('+')" class="me-2">+</button>
+
+  <button (click)="calcular('-')" class="me-2">-</button>
+
+  <button (click)="calcular('*')" class="me-2">*</button>
+
+  <button (click)="calcular('/')">/</button>
+
+  <h3>Resultado: {{ resultado }}</h3>
+
+  <hr />
+
+  <h3>Historial calculadora</h3>
+
+  @for (item of historial; track $index) {
+    <p>{{ item }}</p>
+  }
+</div>

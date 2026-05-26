@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="card p-4">
+    <h2>Conversor de monedas con API</h2>
+
+    <input
+      type="number"
+      class="form-control mb-2"
+      [ngModel]="cantidad()"
+      (ngModelChange)="cantidad.set($event)"
+    />
+
+    <select class="form-select mb-2" [ngModel]="moneda()" (ngModelChange)="moneda.set($event)">
+      @for (item of monedas(); track $index) {
+        <option [value]="item">
+          {{ item }}
+        </option>
+      }
+    </select>
+
+    <button type="button" class="btn btn-primary" (click)="convertir()">Convertir</button>
+
+    <hr />
+
+    <h4>{{ resultado() }}</h4>
+  </div>
+</div>
